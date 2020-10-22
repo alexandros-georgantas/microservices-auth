@@ -1,0 +1,50 @@
+{
+  "name": "@coko/service-auth",
+  "version": "1.0.0",
+  "description": "Authorization/authentication REST endpoint for Coko's services",
+  "main": "index.js",
+  "scripts": {
+    "cz": "git-cz",
+    "release": "standard-version",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@gitlab.coko.foundation:cokoapps/service-auth.git"
+  },
+  "author": "Alexandros Georgantas",
+  "license": "MIT",
+  "dependencies": {
+    "@pubsweet/base-model": "^4.0.0",
+    "@pubsweet/logger": "^0.2.46",
+    "bcrypt": "^3.0.6",
+    "crypto-random-string": "^3.3.0",
+    "jsonwebtoken": "^8.5.1"
+  },
+  "keywords": [
+    "pubsweet",
+    "pubsweet-server",
+    "coko"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "peerDependencies": {
+    "@coko/server": ">=1.3.0",
+    "config": ">=3.0.1"
+  },
+  "devDependencies": {
+    "@coko/lint": "^0.0.2",
+    "standard-version": "^7.1.0"
+  },
+  "config": {
+    "commitizen": {
+      "path": "cz-customizable"
+    }
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  }
+}
