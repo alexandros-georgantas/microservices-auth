@@ -16,9 +16,14 @@ const authHandler = async (req, res) => {
     }
 
     const basic = authHeader.split(' ')
+    if (basic.length !== 2) {
+      return res.status(401).json({
+        msg: 'Malformed headers',
+      })
+    }
     const basicToken = basic[1]
 
-    if (!basic[0] === 'Basic' && !basicToken) {
+    if (basic[0] !== 'Basic' || !basicToken) {
       return res.status(401).json({
         msg: 'Wrong type of auth header or invalid token',
       })
@@ -28,6 +33,12 @@ const authHandler = async (req, res) => {
 
     const decodedToken = Buffer.from(basicToken, 'base64').toString()
     const deconstructedToken = decodedToken.split(':')
+
+    if (deconstructedToken.length !== 2) {
+      return res.status(401).json({
+        msg: 'Malformed token',
+      })
+    }
 
     logger.info(`checking for client`)
     const clientId = deconstructedToken[0]

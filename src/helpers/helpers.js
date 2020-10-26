@@ -34,7 +34,7 @@ const verifyJWT = token => {
 const authenticate = async (req, res, next) => {
   try {
     const token = req.headers.authorization.split(' ')[1]
-    const decodedToken = jwt.verify(token, config.get('pubsweet-server.secret'))
+    const decodedToken = verifyJWT(token)
     const { clientId } = decodedToken
     const client = await Client.query().findById(clientId)
     if (!client) {
