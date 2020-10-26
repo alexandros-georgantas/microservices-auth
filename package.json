@@ -13,7 +13,7 @@
     "url": "git@gitlab.coko.foundation:cokoapps/service-auth.git"
   },
   "bin": {
-    "createClient": "./src/bin/createClient.js"
+    "createServiceClient": "./src/bin/createServiceClient.js"
   },
   "author": "Alexandros Georgantas",
   "license": "MIT",

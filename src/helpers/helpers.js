@@ -1,7 +1,9 @@
 const jwt = require('jsonwebtoken')
 const config = require('config')
 
-const { Client } = require('../models')
+const { models } = require('../models')
+
+const { ServiceClient } = models
 
 const createJWT = data => {
   let expiresIn = 28800000 // 8hours
@@ -35,16 +37,22 @@ const authenticate = async (req, res, next) => {
   try {
     const token = req.headers.authorization.split(' ')[1]
     const decodedToken = verifyJWT(token)
-    const { clientId } = decodedToken
-    const client = await Client.query().findById(clientId)
+    const { data } = decodedToken
+    const { clientId } = data
+    const client = await ServiceClient.query().findById(clientId)
+
     if (!client) {
       throw new Error('client does not exist')
     }
 
     return next()
   } catch (e) {
+    const msg =
+      e.message === 'TokenExpiredError: jwt expired'
+        ? 'expired token'
+        : 'invalid request'
     return res.status(401).json({
-      msg: 'invalid request',
+      msg,
     })
   }
 }

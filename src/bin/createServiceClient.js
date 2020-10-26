@@ -5,8 +5,7 @@ const logger = require('@pubsweet/logger')
 
 const { models } = require('../models')
 
-const { Client } = models
-console.log('c', Client)
+const { ServiceClient } = models
 
 const main = async () => {
   try {
@@ -15,7 +14,7 @@ const main = async () => {
       length: 16,
       type: 'alphanumeric',
     })
-    const newClient = await Client.query().insert({ clientSecret })
+    const newClient = await ServiceClient.query().insert({ clientSecret })
     logger.info(`Your clientID is ${newClient.id}`)
     logger.info(`Your clientSecret is ${clientSecret}`)
     return true

@@ -2,7 +2,7 @@ const logger = require('@pubsweet/logger')
 const { models } = require('../../models')
 const { createJWT } = require('../../helpers')
 
-const { Client } = models
+const { ServiceClient } = models
 
 const authHandler = async (req, res) => {
   try {
@@ -43,8 +43,10 @@ const authHandler = async (req, res) => {
     logger.info(`checking for client`)
     const clientId = deconstructedToken[0]
     const clientSecret = deconstructedToken[1]
-    const client = await Client.query().findById(clientId)
-    const isClientValid = await client.validClientSecret(clientSecret)
+    const client = await ServiceClient.query().findById(clientId)
+    const isClientValid = client
+      ? await client.validClientSecret(clientSecret)
+      : undefined
 
     if (!client || !isClientValid) {
       return res.status(403).json({

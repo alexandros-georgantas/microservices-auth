@@ -1,9 +1,7 @@
-const { model } = require('./client')
-const client = require('./client')
+const { model } = require('./service-client')
 
 module.exports = {
-  client,
   models: {
-    Client: model,
+    ServiceClient: model,
   },
 }

@@ -5,14 +5,14 @@ const bcrypt = require('bcrypt')
 
 const BCRYPT_COST = config.util.getEnv('NODE_ENV') === 'test' ? 1 : 12
 
-class Client extends BaseModel {
+class ServiceClient extends BaseModel {
   static get tableName() {
-    return 'clients'
+    return 'serviceClients'
   }
 
   constructor(properties) {
     super(properties)
-    this.type = 'client'
+    this.type = 'serviceClient'
   }
 
   /* eslint-disable no-param-reassign */
@@ -53,4 +53,4 @@ class Client extends BaseModel {
   }
 }
 
-module.exports = Client
+module.exports = ServiceClient
