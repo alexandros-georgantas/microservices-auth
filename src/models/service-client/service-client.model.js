@@ -1,7 +1,7 @@
 const BaseModel = require('@pubsweet/base-model')
 const logger = require('@pubsweet/logger')
 const config = require('config')
-const bcrypt = require('bcrypt')
+const bcrypt = require('bcryptjs')
 
 const BCRYPT_COST = config.util.getEnv('NODE_ENV') === 'test' ? 1 : 12
 
