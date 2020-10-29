@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.1.1](https://gitlab.coko.foundation///compare/v1.1.0...v1.1.1) (2020-10-29)
+
+
+### Bug Fixes
+
+* **service:** delete bcrypt and replaced with bcryptjs ([c0c1213](https://gitlab.coko.foundation///commit/c0c12132a7880be46bb74e0f98feef0bc3f7c03d))
+
 ## 1.1.0 (2020-10-29)
 
 
