@@ -10,7 +10,8 @@ const { ServiceClient } = models
 
 const manualClientId = config.get('clientId')
 const manualClientSecret = config.get('clientSecret')
-const isManualOperation = () => manualClientId && manualClientSecret
+const isManualOperation = () =>
+  process.env.NODE_ENV === 'development' && manualClientId && manualClientSecret
 
 const main = async () => {
   try {
