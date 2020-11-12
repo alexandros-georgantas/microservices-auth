@@ -32,7 +32,7 @@ const main = async () => {
         clientSecret,
       }
     }
-    const dbClient = await ServiceClient.query().insert({ newClient })
+    const dbClient = await ServiceClient.query().insert(newClient)
     logger.info(`Your clientID is ${dbClient.id}`)
     logger.info(`Your clientSecret is ${newClient.clientSecret}`)
     return true
