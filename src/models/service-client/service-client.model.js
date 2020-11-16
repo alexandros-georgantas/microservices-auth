@@ -1,5 +1,4 @@
-const BaseModel = require('@pubsweet/base-model')
-const logger = require('@pubsweet/logger')
+const { BaseModel, logger } = require('@coko/server')
 const config = require('config')
 const bcrypt = require('bcryptjs')
 
