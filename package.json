@@ -18,7 +18,7 @@
   "author": "Alexandros Georgantas",
   "license": "MIT",
   "dependencies": {
-    "@coko/server": "^1.8.0",
+    "@coko/server": "^1.12.2",
     "bcryptjs": "^2.4.3",
     "config": "^3.3.2",
     "crypto-random-string": "^3.3.0",
