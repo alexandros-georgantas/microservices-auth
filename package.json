@@ -1,6 +1,6 @@
 {
   "name": "@coko/service-auth",
-  "version": "1.1.6",
+  "version": "1.1.7",
   "description": "Authorization/authentication REST endpoint for Coko's services",
   "main": "index.js",
   "scripts": {
