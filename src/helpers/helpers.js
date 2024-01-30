@@ -7,12 +7,15 @@ const { ServiceClient } = models
 
 const createJWT = data => {
   let expiresIn = 28800000 // 8hours
+
   if (config.has('pubsweet-server.tokenExpiresIn')) {
     expiresIn = config.get('pubsweet-server.tokenExpiresIn')
   }
+
   if (!config.get('pubsweet-server.secret')) {
     throw new Error('pubsweet-server secret is required')
   }
+
   return jwt.sign(
     {
       data,
@@ -27,6 +30,7 @@ const verifyJWT = token => {
     if (!config.get('pubsweet-server.secret')) {
       throw new Error('pubsweet-server secret is required')
     }
+
     return jwt.verify(token, config.get('pubsweet-server.secret'))
   } catch (err) {
     throw new Error(err)
@@ -51,6 +55,7 @@ const authenticate = async (req, res, next) => {
       e.message === 'TokenExpiredError: jwt expired'
         ? 'expired token'
         : 'invalid request'
+
     return res.status(401).json({
       msg,
     })
