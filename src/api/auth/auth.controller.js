@@ -16,11 +16,13 @@ const authHandler = async (req, res) => {
     }
 
     const basic = authHeader.split(' ')
+
     if (basic.length !== 2) {
       return res.status(401).json({
         msg: 'Malformed headers',
       })
     }
+
     const basicToken = basic[1]
 
     if (basic[0] !== 'Basic' || !basicToken) {
@@ -28,6 +30,7 @@ const authHandler = async (req, res) => {
         msg: 'Wrong type of auth header or invalid token',
       })
     }
+
     logger.info(`basic token found`)
     logger.info(`decoding token`)
 
@@ -44,6 +47,7 @@ const authHandler = async (req, res) => {
     const clientId = deconstructedToken[0]
     const clientSecret = deconstructedToken[1]
     const client = await ServiceClient.query().findById(clientId)
+
     const isClientValid = client
       ? await client.validClientSecret(clientSecret)
       : undefined
@@ -53,6 +57,7 @@ const authHandler = async (req, res) => {
         msg: 'The system is not aware of this client',
       })
     }
+
     logger.info(`client is valid`)
 
     logger.info(`generating access token`)
