@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.2.0](https://gitlab.coko.foundation/cokoapps/service-auth/compare/v1.1.7...v1.2.0) (2024-01-30)
+
+
+### Features
+
+* **service:** create service client from env ([184c5b0](https://gitlab.coko.foundation/cokoapps/service-auth/commit/184c5b0f004c180998ef138c6ff2e0825ad518af))
+
 ### [1.1.7](https://gitlab.coko.foundation///compare/v1.1.6...v1.1.7) (2021-03-31)
 
 ### [1.1.6](https://gitlab.coko.foundation///compare/v1.1.5...v1.1.6) (2020-12-09)
